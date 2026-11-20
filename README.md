@@ -494,7 +494,10 @@ Agent/
 ├── clickhouse-config.xml       # ClickHouse embedded Keeper config (single-node ReplicatedMergeTree)
 ├── .env.example                # All env vars documented with comments
 ├── requirements.txt
+├── requirements-test.txt       # Minimal dependencies for the offline unit tests
 ├── README.md
+│
+├── tests/                      # Offline pytest suite (chunking, RSS normalisation)
 │
 ├── examples/
 │   └── transcript.md           # 3–4 turn demo conversation with reasoning trace
@@ -535,6 +538,17 @@ Agent/
 │
 └── scripts/
     └── ingest.py               # One-shot corpus seeding script
+```
+
+---
+
+## Tests
+
+The offline unit tests cover the deterministic parts of the pipeline (token-based chunking and RSS normalisation). They need no API keys or network access and run on every push via GitHub Actions.
+
+```bash
+pip install -r requirements-test.txt
+python -m pytest -q
 ```
 
 ---
@@ -664,3 +678,8 @@ docker compose restart agent
 ```
 
 ---
+---
+
+## Licence
+
+MIT, see [LICENSE](LICENSE).

@@ -1,0 +1,6 @@
+# Minimal dependencies for the offline unit tests (no API keys needed)
+pytest>=8.3.0
+tiktoken>=0.7.0
+feedparser>=6.0.11
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
